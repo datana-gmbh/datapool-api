@@ -1,0 +1,16 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Datana\Datapool\Api;
+
+/**
+ * @author Oskar Stark <oskar.stark@googlemail.de>
+ */
+interface AktenEventLogApiInterface
+{
+    /**
+     * @param array<mixed>|null         $context
+     */
+    public function log(string $aktenzeichen, string $info, \DateTimeInterface $timestamp, string $creator, ?string $text = null, ?string $html = null, ?array $context = null, ?string $foreignId = null, ?string $foreignType = null): bool;
+}
