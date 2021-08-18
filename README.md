@@ -8,7 +8,7 @@
 
 ### Setup
 ```php
-use Datana\Datappol\Api\DatapoolClient;
+use Datana\Datapool\Api\DatapoolClient;
 
 $baseUri = 'https://....';
 $username = '...';
@@ -22,11 +22,11 @@ $client->request('GET', '/something', $options);
 
 ### Create AktenEventLog
 
-In your code you should type-hint to `Datana\Datappol\Api\AktenEventLogInterface`
+In your code you should type-hint to `Datana\Datapool\Api\AktenEventLogInterface`
 
 ```php
-use Datana\Datappol\Api\DatapoolClient;
-use Datana\Datappol\Api\AktenEventLog;
+use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\AktenEventLog;
 
 $client = new DatapoolClient(/* ... */);
 
