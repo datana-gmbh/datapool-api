@@ -32,10 +32,10 @@ $client = new DatapoolClient(/* ... */);
 
 $aktenEventLog = new AktenEventLog($client);
 $aktenEventLog->log(
-    '1234/12', // Aktenzeichen
-    'E-Mail versendet', // Info-Text
+    '1234/12',                // Aktenzeichen
+    'E-Mail versendet',       // Info-Text
     new \DateTimeImmutable(), // Zeitpunkt des Events
-    'Mein Service', // Ersteller des Events
+    'Mein Service',           // Ersteller des Events
 );
 ```
 
