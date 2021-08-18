@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace Datana\Datapool\Api;
 
-use Datana\Datapool\Api\AktenEventLogApiInterface;
-use Datana\Datapool\Api\DatapoolClient;
 use OskarStark\Value\TrimmedNonEmptyString;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
