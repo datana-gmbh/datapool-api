@@ -20,6 +20,21 @@ $client = new DatapoolClient($baseUri, $username, $password);
 $client->request('GET', '/something', $options);
 ```
 
+### Create AktenEventLog
+```php
+use Datana\Datappol\Api\DatapoolClient;
+
+$client = new DatappolClient(/* ... */);
+
+$aktenEventLog = new AktenEventLog($client);
+$aktenEventLog->log(
+    '1234/12', // Aktenzeichen
+    'E-Mail versendet', // Info-Text
+    new \DateTimeImmutable(), // Zeitpunkt des Events
+    'Mein Service', // Ersteller des Events
+);
+```
+
 ---
 
 [build-status-master-php]: https://github.com/datana-gmbh/datapool-api/workflows/PHP/badge.svg?branch=master
