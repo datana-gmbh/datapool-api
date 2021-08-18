@@ -15,7 +15,7 @@ $baseUri = 'https://....';
 $username = '...';
 $password = '...';
 
-$client = new DatappolClient($baseUri, $username, $password);
+$client = new DatapoolClient($baseUri, $username, $password);
 
 // you can now request any endpoint which needs authentication
 $client->request('GET', '/something', $options);
