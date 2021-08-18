@@ -46,9 +46,11 @@ final class AktenzeichenApi implements AktenzeichenApiInterface
                 ],
             );
 
-            $this->logger->debug('Response', [$response->getContent()]);
+            $result = $response->toArray();
 
-            return $response->getContent();
+            $this->logger->debug('Response', $result);
+
+            return $result['aktenzeichen'];
         } catch (\Throwable $e) {
             $this->logger->error($e->getMessage());
 
