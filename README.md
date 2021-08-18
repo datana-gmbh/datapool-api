@@ -3,7 +3,6 @@
 | Branch    | PHP                                         | Code Coverage                                        |
 |-----------|---------------------------------------------|------------------------------------------------------|
 | `master`  | [![PHP][build-status-master-php]][actions]  | [![Code Coverage][coverage-status-master]][codecov]  |
-| `develop` | [![PHP][build-status-develop-php]][actions] | [![Code Coverage][coverage-status-develop]][codecov] |
 
 ## Usage
 
@@ -23,9 +22,7 @@ $client->request('GET', '/something', $options);
 
 ---
 
-[build-status-develop-php]: https://github.com/datana-gmbh/datapool-api/workflows/PHP/badge.svg?branch=develop
 [build-status-master-php]: https://github.com/datana-gmbh/datapool-api/workflows/PHP/badge.svg?branch=master
-[coverage-status-develop]: https://codecov.io/gh/datana-gmbh/datapool-api/branch/develop/graph/badge.svg
 [coverage-status-master]: https://codecov.io/gh/datana-gmbh/datapool-api/branch/master/graph/badge.svg
 
 [actions]: https://github.com/datana-gmbh/datapool-api/actions
