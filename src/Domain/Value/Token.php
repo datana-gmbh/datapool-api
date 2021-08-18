@@ -17,6 +17,9 @@ use OskarStark\Value\TrimmedNonEmptyString;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;
 
+/**
+ * @author Oskar Stark <oskarstark@googlemail.com>
+ */
 final class Token
 {
     private string $value;

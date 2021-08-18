@@ -19,6 +19,9 @@ use OskarStark\Value\TrimmedNonEmptyString;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
+/**
+ * @author Oskar Stark <oskarstark@googlemail.com>
+ */
 final class AktenEventLogApi implements AktenEventLogApiInterface
 {
     private DatapoolClient $client;

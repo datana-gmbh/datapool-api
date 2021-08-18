@@ -15,6 +15,9 @@ namespace Datana\Datapool\Api;
 
 use Webmozart\Assert\Assert;
 
+/**
+ * @author Oskar Stark <oskarstark@googlemail.com>
+ */
 final class NullAktenEventLogApi implements AktenEventLogApiInterface
 {
     public function log(string $aktenzeichen, string $info, \DateTimeInterface $timestamp, string $creator, ?string $text = null, ?string $html = null, ?array $context = null, ?string $foreignId = null, ?string $foreignType = null): bool
