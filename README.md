@@ -18,7 +18,7 @@ $password = '...';
 $client = new DatappolClient($baseUri, $username, $password);
 
 // you can now request any endpoint which needs authentication
-$client->request($method, $url, $options);
+$client->request('GET', '/something', $options);
 ```
 
 ---
