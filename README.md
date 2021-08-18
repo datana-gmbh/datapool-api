@@ -21,10 +21,14 @@ $client->request('GET', '/something', $options);
 ```
 
 ### Create AktenEventLog
+
+In your code you should type-hint to `Datana\Datappol\Api\AktenEventLogInterface`
+
 ```php
 use Datana\Datappol\Api\DatapoolClient;
+use Datana\Datappol\Api\AktenEventLog;
 
-$client = new DatappolClient(/* ... */);
+$client = new DatapoolClient(/* ... */);
 
 $aktenEventLog = new AktenEventLog($client);
 $aktenEventLog->log(
