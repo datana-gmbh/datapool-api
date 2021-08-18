@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Datana\Datatpool\Api;
+namespace Datana\Datapool\Api;
 
 use Datana\Datapool\Api\AktenEventLogApiInterface;
 use Datana\Datapool\Api\DatapoolClient;
