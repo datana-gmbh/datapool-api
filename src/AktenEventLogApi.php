@@ -25,7 +25,7 @@ final class AktenEventLogApi implements AktenEventLogApiInterface
     private DatapoolClient $client;
     private LoggerInterface $logger;
 
-    public function __construct(DatapoolClient $client, ?LoggerInterface $logger)
+    public function __construct(DatapoolClient $client, ?LoggerInterface $logger = null)
     {
         $this->client = $client;
         $this->logger = $logger ?? new NullLogger();
