@@ -53,8 +53,6 @@ $aktenEventLog->log(
 );
 ```
 
----
-
 [build-status-master-php]: https://github.com/datana-gmbh/datapool-api/workflows/PHP/badge.svg?branch=master
 [coverage-status-master]: https://codecov.io/gh/datana-gmbh/datapool-api/branch/master/graph/badge.svg
 
