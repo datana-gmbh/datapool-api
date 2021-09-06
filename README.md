@@ -20,9 +20,11 @@ $client = new DatapoolClient($baseUri, $username, $password);
 $client->request('GET', '/something', $options);
 ```
 
-### Aktenzeichen
+## Aktenzeichen
 
 In your code you should type-hint to `Datana\Datapool\Api\AktenzeichenApiInterface`
+
+### Get a new one
 
 ```php
 use Datana\Datapool\Api\DatapoolClient;
@@ -34,9 +36,11 @@ $aktenzeichenApi = new AktenzeichenApi($client);
 $aktenzeichenApi->new(); // returns sth like "6gv5dwb"
 ```
 
-### AktenEventLog
+## AktenEventLog
 
 In your code you should type-hint to `Datana\Datapool\Api\AktenEventLogInterface`
+
+### Create a new log
 
 ```php
 use Datana\Datapool\Api\DatapoolClient;
