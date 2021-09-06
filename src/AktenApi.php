@@ -16,9 +16,9 @@ namespace Datana\Datapool\Api;
 use Datana\Datapool\Api\Domain\Value\DatapoolId;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
-use Webmozart\Assert\Assert;
 use function Safe\sprintf;
 use Symfony\Contracts\HttpClient\ResponseInterface;
+use Webmozart\Assert\Assert;
 
 final class AktenApi implements AktenApiInterface
 {
