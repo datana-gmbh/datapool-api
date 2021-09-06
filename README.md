@@ -20,6 +20,62 @@ $client = new DatapoolClient($baseUri, $username, $password);
 $client->request('GET', '/something', $options);
 ```
 
+## Akten
+
+In your code you should type-hint to `Datana\Datapool\Api\AktenApiInterface`
+
+### Get by Aktenzeichen (`string`)
+
+```php
+use Datana\Datapool\Api\AktenApi;
+use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\Domain\Value\DatapoolId;
+
+$client = new DatapoolClient(/* ... */);
+
+$aktenApi = new AktenApi($client);
+$response = $aktenApi->getByAktenzeichen('9zku4b-4524-4528-Winter');
+
+/*
+ * to get the DatapoolId transform the response to array
+ * and use the 'id' key.
+ */
+$akte = $response->toArray();
+$datapoolId = DatapoolId::fromInt($akte['id']);
+```
+
+### Get by ID (`Datana\Datapool\Api\Domain\Value\DatapoolId`)
+
+```php
+use Datana\Datapool\Api\AktenApi;
+use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\Domain\Value\DatapoolId;
+
+$client = new DatapoolClient(/* ... */);
+
+$aktenApi = new AktenApi($client);
+
+$id = DatapoolId::fromInt(123);
+
+$aktenApi->getById($id);
+```
+
+### Set value "Nutzer Mandantencockpit" (`bool`)
+
+```php
+use Datana\Datapool\Api\AktenApi;
+use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\Domain\Value\DatapoolId;
+
+$client = new DatapoolClient(/* ... */);
+
+$aktenApi = new AktenApi($client);
+
+$id = DatapoolId::fromInt(123);
+
+$aktenApi->setValueNutzerMandantencockpit($id, true); // or false
+```
+
 ## Aktenzeichen
 
 In your code you should type-hint to `Datana\Datapool\Api\AktenzeichenApiInterface`
@@ -27,13 +83,13 @@ In your code you should type-hint to `Datana\Datapool\Api\AktenzeichenApiInterfa
 ### Get a new one
 
 ```php
-use Datana\Datapool\Api\DatapoolClient;
 use Datana\Datapool\Api\AktenzeichenApi;
+use Datana\Datapool\Api\DatapoolClient;
 
 $client = new DatapoolClient(/* ... */);
 
 $aktenzeichenApi = new AktenzeichenApi($client);
-$aktenzeichenApi->new(); // returns sth like "6gv5dwb"
+$aktenzeichenApi->new(); // returns sth like "6GU5DCB"
 ```
 
 ## AktenEventLog
@@ -43,8 +99,8 @@ In your code you should type-hint to `Datana\Datapool\Api\AktenEventLogInterface
 ### Create a new log
 
 ```php
-use Datana\Datapool\Api\DatapoolClient;
 use Datana\Datapool\Api\AktenEventLog;
+use Datana\Datapool\Api\DatapoolClient;
 
 $client = new DatapoolClient(/* ... */);
 
