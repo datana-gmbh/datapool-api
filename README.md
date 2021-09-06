@@ -60,6 +60,31 @@ $id = DatapoolId::fromInt(123);
 $aktenApi->getById($id);
 ```
 
+### Get KT Akten Info (`Datana\Datapool\Api\Domain\Value\DatapoolId`)
+
+```php
+use Datana\Datapool\Api\AktenApi;
+use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\Domain\Value\DatapoolId;
+
+$client = new DatapoolClient(/* ... */);
+
+$aktenApi = new AktenApi($client);
+
+$id = DatapoolId::fromInt(123);
+
+$aktenApi->getKtAktenInfo($id);
+/*
+ * Result:
+ *   [
+ *     'id' => 123,
+ *     'url' => 'https://projects.knowledgetools.de/rema/?tab=akten&akte=4528',
+ *     'instance' => 'rema',
+ *     'group' => 'GARA',
+ *   ]
+ */
+```
+
 ### Set value "Nutzer Mandantencockpit" (`bool`)
 
 ```php
