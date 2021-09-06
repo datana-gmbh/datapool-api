@@ -20,6 +20,6 @@ final class FakeAktenzeichenApi implements AktenzeichenApiInterface
 {
     public function new(): string
     {
-        return '6gv5dwb';
+        return '6GU5DCB';
     }
 }
