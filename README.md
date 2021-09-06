@@ -79,7 +79,7 @@ $aktenApi->getKtAktenInfo($id);
  *   [
  *     'id' => 123,
  *     'url' => 'https://projects.knowledgetools.de/rema/?tab=akten&akte=4528',
- *     'instance' => 'remae',
+ *     'instance' => 'rema',
  *     'group' => 'GARA',
  *   ]
  */
