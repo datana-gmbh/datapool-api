@@ -24,6 +24,18 @@ $client->request('GET', '/something', $options);
 
 In your code you should type-hint to `Datana\Datapool\Api\AktenApiInterface`
 
+### Search by string (`string`)
+
+```php
+use Datana\Datapool\Api\AktenApi;
+use Datana\Datapool\Api\DatapoolClient;
+
+$client = new DatapoolClient(/* ... */);
+
+$aktenApi = new AktenApi($client);
+$response = $aktenApi->search('MySearchTerm');
+```
+
 ### Get by Aktenzeichen (`string`)
 
 ```php

@@ -56,6 +56,31 @@ final class AktenApi implements AktenApiInterface
         }
     }
 
+    public function search(string $searchTerm): ResponseInterface
+    {
+        Assert::stringNotEmpty($searchTerm);
+
+        try {
+            $response = $this->client->request(
+                'GET',
+                '/api/akten',
+                [
+                    'query' => [
+                        'searchstring' => $searchTerm,
+                    ],
+                ]
+            );
+
+            $this->logger->debug('Response', $response->toArray(false));
+
+            return $response;
+        } catch (\Throwable $e) {
+            $this->logger->error($e->getMessage());
+
+            throw $e;
+        }
+    }
+
     public function getById(DatapoolId $datapoolId): ResponseInterface
     {
         try {
