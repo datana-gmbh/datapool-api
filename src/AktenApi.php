@@ -74,6 +74,24 @@ final class AktenApi implements AktenApiInterface
         }
     }
 
+    public function getKtAktenInfo(DatapoolId $datapoolId): ResponseInterface
+    {
+        try {
+            $response = $this->client->request(
+                'GET',
+                sprintf('/api/akte/%s/kt-akte-info', $datapoolId->toInt())
+            );
+
+            $this->logger->debug('Response', $response->toArray(false));
+
+            return $response;
+        } catch (\Throwable $e) {
+            $this->logger->error($e->getMessage());
+
+            throw $e;
+        }
+    }
+
     /**
      * {@inheritDoc}
      */

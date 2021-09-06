@@ -25,6 +25,8 @@ interface AktenApiInterface
 
     public function getByAktenzeichen(string $aktenzeichen): ResponseInterface;
 
+    public function getKtAktenInfo(DatapoolId $datapoolId): ResponseInterface;
+
     /**
      * Diese Methode setzt "Ja" in KT beim Feld "Nutzer Mandantencockpit", das bedeutet
      * dass nur noch das Mandantencockpit für die Benachrichtigungen an den User zuständig ist.
