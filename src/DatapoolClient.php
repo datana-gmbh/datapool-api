@@ -30,11 +30,13 @@ final class DatapoolClient
     private HttpClientInterface $client;
     private string $username;
     private string $password;
+    private string $baseUri;
     private LoggerInterface $logger;
 
     public function __construct(string $baseUri, string $username, string $password, ?LoggerInterface $logger = null)
     {
-        $this->client = HttpClient::createForBaseUri($baseUri);
+        $this->baseUri = $baseUri;
+        $this->client = HttpClient::createForBaseUri($this->baseUri);
         $this->username = $username;
         $this->password = $password;
         $this->logger = $logger ?? new NullLogger();
@@ -82,7 +84,9 @@ final class DatapoolClient
      */
     public function request(string $method, string $url, array $options = []): ResponseInterface
     {
-        Assert::notStartsWith($url, 'http', '$url should be relative: Got: %s');
+        // replaces base url in case a absoulute URL is passed. We need a relative URL to call the HttpClient.
+        $url = str_replace($this->baseUri, '', $url);
+
         Assert::startsWith($url, '/', '$url should start with a "/". Got: %s');
 
         $token = $this->getToken();
