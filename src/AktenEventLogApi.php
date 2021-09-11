@@ -34,18 +34,24 @@ final class AktenEventLogApi implements AktenEventLogApiInterface
     public function log(string $aktenzeichen, string $info, \DateTimeInterface $timestamp, string $creator, ?string $text = null, ?string $html = null, ?array $context = null, ?string $foreignId = null, ?string $foreignType = null): bool
     {
         $values = [
-            'aktenzeichen' => TrimmedNonEmptyString::fromString($aktenzeichen)->toString(),
-            'info' => TrimmedNonEmptyString::fromString($info)->toString(),
+            'aktenzeichen' => TrimmedNonEmptyString::fromString($aktenzeichen, '"aktenzeichen" must not be empty.')->toString(),
+            'info' => TrimmedNonEmptyString::fromString($info, '"info" must not be empty.')->toString(),
             'timestamp' => $timestamp->format('Y-m-d H:i:s'),
-            'creator' => TrimmedNonEmptyString::fromString($creator)->toString(),
+            'creator' => TrimmedNonEmptyString::fromString($creator, '"creator" must not be empty.')->toString(),
         ];
 
         if (null !== $text) {
-            $values['text'] = TrimmedNonEmptyString::fromString($text)->toString();
+            $values['text'] = TrimmedNonEmptyString::fromString(
+                $text,
+                'If provided, value of "text" must not be empty, provide "null" instead.'
+            )->toString();
         }
 
         if (null !== $html) {
-            $values['html'] = TrimmedNonEmptyString::fromString($html)->toString();
+            $values['html'] = TrimmedNonEmptyString::fromString(
+                $html,
+                'If provided, value of "html" must not be empty, provide "null" instead.'
+            )->toString();
         }
 
         if (null !== $context) {
@@ -53,11 +59,17 @@ final class AktenEventLogApi implements AktenEventLogApiInterface
         }
 
         if (null !== $foreignId) {
-            $values['foreignId'] = TrimmedNonEmptyString::fromString($foreignId)->toString();
+            $values['foreignId'] = TrimmedNonEmptyString::fromString(
+                $foreignId,
+                'If provided, value "foreignId" must not be empty, provide "null" instead.'
+            )->toString();
         }
 
         if (null !== $foreignType) {
-            $values['foreignType'] = TrimmedNonEmptyString::fromString($foreignType)->toString();
+            $values['foreignType'] = TrimmedNonEmptyString::fromString(
+                $foreignType,
+                'If provided, value "foreignType" must not be empty, provide "null" instead.'
+            )->toString();
         }
 
         $this->logger->debug('Log to AktenEventLog', $values);
