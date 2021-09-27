@@ -30,7 +30,7 @@ interface AktenApiInterface
     public function search(string $searchTerm): ResponseInterface;
 
     /**
-     * Diese Methode setzt "Ja" in KT beim Feld "Nutzer Mandantencockpit", das bedeutet
+     * Diese Methode setzt "Ja" in KT beim Feld "Nutzer Mandantencockpit", das bedeutet,
      * dass nur noch das Mandantencockpit für die Benachrichtigungen an den User zuständig ist.
      *
      * Andere Systeme wie KT, Formulario, VWV senden dann keine E-Mails oder SMS mehr an den Mandanten!
