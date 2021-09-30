@@ -17,7 +17,7 @@ $password = '...';
 $client = new DatapoolClient($baseUri, $username, $password);
 
 // you can now request any endpoint which needs authentication
-$client->request('GET', '/something', $options);
+$client->request('GET', '/api/something', $options);
 ```
 
 ## Akten
