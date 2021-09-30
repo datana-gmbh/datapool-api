@@ -36,7 +36,7 @@ final class AktenzeichenApi implements AktenzeichenApiInterface
 
         try {
             $response = $this->client->request(
-                'GET',
+                'POST',
                 '/api/aktenzeichen/new',
                 [
                     'headers' => [
