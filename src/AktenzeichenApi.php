@@ -43,6 +43,7 @@ final class AktenzeichenApi implements AktenzeichenApiInterface
                         'Accept' => 'application/json',
                         'Content-Type' => 'application/json',
                     ],
+                    'body' => json_encode([])
                 ],
             );
 
