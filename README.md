@@ -97,6 +97,28 @@ $aktenApi->getKtAktenInfo($id);
  */
 ```
 
+### Get E-Termin Info (`Datana\Datapool\Api\Domain\Value\DatapoolId`)
+
+```php
+use Datana\Datapool\Api\AktenApi;
+use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\Domain\Value\DatapoolId;
+
+$client = new DatapoolClient(/* ... */);
+
+$aktenApi = new AktenApi($client);
+
+$id = DatapoolId::fromInt(123);
+
+$aktenApi->getETerminInfo($id);
+/*
+ * Result:
+ *   [
+ *     'service_id' => 123,
+ *   ]
+ */
+```
+
 ### Set value "Nutzer Mandantencockpit" (`bool`)
 
 ```php
