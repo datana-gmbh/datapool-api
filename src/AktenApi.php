@@ -117,6 +117,24 @@ final class AktenApi implements AktenApiInterface
         }
     }
 
+    public function getETerminInfo(DatapoolId $datapoolId): ResponseInterface
+    {
+        try {
+            $response = $this->client->request(
+                'GET',
+                sprintf('/api/akte/%s/e-termin-info', $datapoolId->toInt())
+            );
+
+            $this->logger->debug('Response', $response->toArray(false));
+
+            return $response;
+        } catch (\Throwable $e) {
+            $this->logger->error($e->getMessage());
+
+            throw $e;
+        }
+    }
+
     /**
      * {@inheritDoc}
      */
