@@ -25,6 +25,8 @@ interface AktenApiInterface
 
     public function getByAktenzeichen(string $aktenzeichen): ResponseInterface;
 
+    public function getETerminInfo(DatapoolId $datapoolId): ResponseInterface;
+
     public function getKtAktenInfo(DatapoolId $datapoolId): ResponseInterface;
 
     public function search(string $searchTerm): ResponseInterface;
