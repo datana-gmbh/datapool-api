@@ -32,7 +32,7 @@ final class ChatProtocolApi implements ChatProtocolApiInterface
     }
 
     /**
-     * @param array<mixed>              $conversation
+     * @param array<mixed> $conversation
      */
     public function save(string $aktenzeichen, string $conversationId, array $conversation, \DateTimeInterface $createdAt): bool
     {

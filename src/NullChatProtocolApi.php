@@ -20,6 +20,9 @@ use Webmozart\Assert\Assert;
  */
 final class NullChatProtocolApi implements ChatProtocolApiInterface
 {
+    /**
+     * @param array<mixed> $conversation
+     */
     public function save(string $aktenzeichen, string $conversationId, array $conversation, \DateTimeInterface $createdAt): bool
     {
         Assert::stringNotEmpty($aktenzeichen);

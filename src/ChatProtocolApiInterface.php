@@ -19,7 +19,7 @@ namespace Datana\Datapool\Api;
 interface ChatProtocolApiInterface
 {
     /**
-     * @param array<mixed>|null $context
+     * @param array<mixed> $conversation
      */
     public function save(string $aktenzeichen, string $conversationId, array $conversation, \DateTimeInterface $createdAt): bool;
 }
