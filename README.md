@@ -176,7 +176,7 @@ $aktenEventLog->log(
 
 In your code you should type-hint to `Datana\Datapool\Api\ChatProtocolApiInterface`
 
-### Create a new chat protocol
+### Save a new chat protocol
 
 ```php
 use Datana\Datapool\Api\ChatProtoclApi;
