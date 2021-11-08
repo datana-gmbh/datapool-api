@@ -158,17 +158,38 @@ In your code you should type-hint to `Datana\Datapool\Api\AktenEventLogInterface
 ### Create a new log
 
 ```php
-use Datana\Datapool\Api\AktenEventLog;
+use Datana\Datapool\Api\AktenEventLogApi;
 use Datana\Datapool\Api\DatapoolClient;
 
 $client = new DatapoolClient(/* ... */);
 
-$aktenEventLog = new AktenEventLog($client);
+$aktenEventLog = new AktenEventLogApi($client);
 $aktenEventLog->log(
     '1234/12',                // Aktenzeichen
     'E-Mail versendet',       // Info-Text
     new \DateTimeImmutable(), // Zeitpunkt des Events
     'Mein Service',           // Ersteller des Events
+);
+```
+
+## ChatProtocol
+
+In your code you should type-hint to `Datana\Datapool\Api\ChatProtocolApiInterface`
+
+### Create a new chat protocol
+
+```php
+use Datana\Datapool\Api\ChatProtoclApi;
+use Datana\Datapool\Api\DatapoolClient;
+
+$client = new DatapoolClient(/* ... */);
+
+$chatProtocol = new ChrtProtocolApi($client);
+$chatProtocol->log(
+    '1234/12',                // Aktenzeichen
+    '123456',                 // Conversation ID
+    array(/*...*/),           // Das JSON der Intercom conversation
+    new \DateTimeImmutable(), // Startzeitpunkt der Conversation
 );
 ```
 
