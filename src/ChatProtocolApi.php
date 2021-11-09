@@ -40,7 +40,7 @@ final class ChatProtocolApi implements ChatProtocolApiInterface
             'aktenzeichen' => TrimmedNonEmptyString::fromString($aktenzeichen, '"aktenzeichen" must not be empty.')->toString(),
             'conversationId' => TrimmedNonEmptyString::fromString($conversationId, '"conversationId" must not be empty.')->toString(),
             'conversation' => $conversation,
-            'timestamp' => $createdAt->format('Y-m-d H:i:s'),
+            'created_at' => $createdAt->format('Y-m-d H:i:s'),
         ];
 
         $this->logger->debug('Save ChatProtocol', $values);
