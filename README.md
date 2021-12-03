@@ -121,6 +121,7 @@ $aktenApi->getETerminInfo($id);
  * Result:
  *   [
  *     'service_id' => 123,
+ *     'service_url' => 'https://www.etermin.net/Gansel-Rechtsanwaelte/serviceid/123',
  *   ]
  */
 ```
