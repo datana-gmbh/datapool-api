@@ -6,6 +6,12 @@
 
 ## Usage
 
+### Installation
+
+```bash
+composer require datana-gmbh/datapool-api
+```
+
 ### Setup
 ```php
 use Datana\Datapool\Api\DatapoolClient;
