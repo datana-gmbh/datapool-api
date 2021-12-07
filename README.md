@@ -91,15 +91,23 @@ $aktenApi = new AktenApi($client);
 
 $id = DatapoolId::fromInt(123);
 
-$aktenApi->getKtAktenInfo($id);
+// is an instance of KtAktenInfoResponse
+$result = $aktenApi->getKtAktenInfo($id);
 /*
- * Result:
+ * $response->toArray():
  *   [
  *     'id' => 123,
  *     'url' => 'https://projects.knowledgetools.de/rema/?tab=akten&akte=4528',
  *     'instance' => 'rema',
  *     'group' => 'GARA',
  *   ]
+ *
+ * or use the dedicated getter methods like
+ *  - getId()
+ *  - getUrl()
+ *  - getInstance()
+ *  - getGroup()
+ * etc.
  */
 ```
 
@@ -116,13 +124,19 @@ $aktenApi = new AktenApi($client);
 
 $id = DatapoolId::fromInt(123);
 
-$aktenApi->getETerminInfo($id);
+// is an instance of ETerminResponse
+$response = $aktenApi->getETerminInfo($id);
 /*
- * Result:
+ * $response->toArray():
  *   [
  *     'service_id' => 123,
  *     'service_url' => 'https://www.etermin.net/Gansel-Rechtsanwaelte/serviceid/123',
  *   ]
+ *
+ * or use the dedicated getter methods like
+ *  - getServiceId()
+ *  - getServiceUrl()
+ * etc.
  */
 ```
 

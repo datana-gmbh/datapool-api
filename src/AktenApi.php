@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace Datana\Datapool\Api;
 
 use Datana\Datapool\Api\Domain\Value\DatapoolId;
+use Datana\Datapool\Api\Response\ETerminInfoResponse;
+use Datana\Datapool\Api\Response\KtAktenInfoResponse;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use function Safe\sprintf;
@@ -99,7 +101,7 @@ final class AktenApi implements AktenApiInterface
         }
     }
 
-    public function getKtAktenInfo(DatapoolId $datapoolId): ResponseInterface
+    public function getKtAktenInfo(DatapoolId $datapoolId): KtAktenInfoResponse
     {
         try {
             $response = $this->client->request(
@@ -109,7 +111,7 @@ final class AktenApi implements AktenApiInterface
 
             $this->logger->debug('Response', $response->toArray(false));
 
-            return $response;
+            return new KtAktenInfoResponse($response);
         } catch (\Throwable $e) {
             $this->logger->error($e->getMessage());
 
@@ -117,7 +119,7 @@ final class AktenApi implements AktenApiInterface
         }
     }
 
-    public function getETerminInfo(DatapoolId $datapoolId): ResponseInterface
+    public function getETerminInfo(DatapoolId $datapoolId): ETerminInfoResponse
     {
         try {
             $response = $this->client->request(
@@ -127,7 +129,7 @@ final class AktenApi implements AktenApiInterface
 
             $this->logger->debug('Response', $response->toArray(false));
 
-            return $response;
+            return new ETerminInfoResponse($response);
         } catch (\Throwable $e) {
             $this->logger->error($e->getMessage());
 
