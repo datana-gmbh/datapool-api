@@ -58,8 +58,34 @@ $response = $aktenApi->getByAktenzeichen('9zku4b-4524-4528-Winter');
  * to get the DatapoolId transform the response to array
  * and use the 'id' key.
  */
-$akte = $response->toArray();
+$akten = $response->toArray();
 $datapoolId = DatapoolId::fromInt($akte['id']);
+```
+
+### Get one by Aktenzeichen (`string`) or get an exception
+
+```php
+use Datana\Datapool\Api\AktenApi;
+use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\Domain\Value\DatapoolId;
+
+$client = new DatapoolClient(/* ... */);
+
+$aktenApi = new AktenApi($client);
+
+// is an instance of AktenResponse
+$result = $aktenApi->getOneByAktenzeichen('9zku4b-4524-4528-Winter');
+/*
+ * $response->toArray():
+ *   [
+ *     'id' => 123,
+ *     ...
+ *   ]
+ *
+ * or use the dedicated getter methods like
+ *  - getId(): DatapoolId
+ * etc.
+ */
 ```
 
 ### Get by ID (`Datana\Datapool\Api\Domain\Value\DatapoolId`)
