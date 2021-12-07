@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Datana\Datapool\Api;
 
 use Datana\Datapool\Api\Domain\Value\DatapoolId;
+use Datana\Datapool\Api\Response\AktenResponse;
 use Datana\Datapool\Api\Response\ETerminInfoResponse;
 use Datana\Datapool\Api\Response\KtAktenInfoResponse;
 use Symfony\Contracts\HttpClient\ResponseInterface;
@@ -26,6 +27,8 @@ interface AktenApiInterface
     public function getById(DatapoolId $datapoolId): ResponseInterface;
 
     public function getByAktenzeichen(string $aktenzeichen): ResponseInterface;
+
+    public function getOneByAktenzeichen(string $aktenzeichen): AktenResponse;
 
     public function getETerminInfo(DatapoolId $datapoolId): ETerminInfoResponse;
 

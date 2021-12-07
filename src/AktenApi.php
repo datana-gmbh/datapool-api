@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Datana\Datapool\Api;
 
 use Datana\Datapool\Api\Domain\Value\DatapoolId;
+use Datana\Datapool\Api\Response\AktenResponse;
 use Datana\Datapool\Api\Response\ETerminInfoResponse;
 use Datana\Datapool\Api\Response\KtAktenInfoResponse;
 use Psr\Log\LoggerInterface;
@@ -56,6 +57,11 @@ final class AktenApi implements AktenApiInterface
 
             throw $e;
         }
+    }
+
+    public function getOneByAktenzeichen(string $aktenzeichen): AktenResponse
+    {
+        return new AktenResponse($this->getByAktenzeichen($aktenzeichen));
     }
 
     public function search(string $searchTerm): ResponseInterface
