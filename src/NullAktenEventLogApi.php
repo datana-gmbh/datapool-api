@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Datana\Datapool\Api;
 
-use Webmozart\Assert\Assert;
+use OskarStark\Value\TrimmedNonEmptyString;
 
 /**
  * @author Oskar Stark <oskarstark@googlemail.com>
@@ -22,24 +22,24 @@ final class NullAktenEventLogApi implements AktenEventLogApiInterface
 {
     public function log(string $aktenzeichen, string $info, \DateTimeInterface $timestamp, string $creator, ?string $text = null, ?string $html = null, ?array $context = null, ?string $foreignId = null, ?string $foreignType = null): bool
     {
-        Assert::stringNotEmpty($aktenzeichen);
-        Assert::stringNotEmpty($info);
-        Assert::stringNotEmpty($creator);
+        TrimmedNonEmptyString::fromString($aktenzeichen);
+        TrimmedNonEmptyString::fromString($info);
+        TrimmedNonEmptyString::fromString($creator);
 
         if (null !== $text) {
-            Assert::stringNotEmpty($text);
+            TrimmedNonEmptyString::fromString($text);
         }
 
         if (null !== $html) {
-            Assert::stringNotEmpty($html);
+            TrimmedNonEmptyString::fromString($html);
         }
 
         if (null !== $foreignId) {
-            Assert::stringNotEmpty($foreignId);
+            TrimmedNonEmptyString::fromString($foreignId);
         }
 
         if (null !== $foreignType) {
-            Assert::stringNotEmpty($foreignType);
+            TrimmedNonEmptyString::fromString($foreignType);
         }
 
         return true;
