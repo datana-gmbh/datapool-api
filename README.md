@@ -200,7 +200,7 @@ $aktenzeichenApi->new(); // returns sth like "6GU5DCB"
 
 ## AktenEventLog
 
-In your code you should type-hint to `Datana\Datapool\Api\AktenEventLogInterface`
+In your code you should type-hint to `Datana\Datapool\Api\AktenEventLogApiInterface`
 
 ### Create a new log
 
@@ -218,6 +218,31 @@ $aktenEventLog->log(
     'Mein Service',           // Ersteller des Events
 );
 ```
+
+## SystemEventLog
+
+In your code you should type-hint to `Datana\Datapool\Api\SystemEventLogApiInterface`
+
+### Create a new log
+
+```php
+use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\SystemEventLogApi;
+
+$client = new DatapoolClient(/* ... */);
+
+$systemEventLog = new SystemEventLogApi($client);
+$systemEventLog->log(
+    'received.webhook',                             // Key
+    'Webhook received on /api/cockpit/DAT-changed', // Info-Text
+    new \DateTimeImmutable(),                       // Zeitpunkt des Events
+    'Mein Service',                                 // Ersteller des Events
+    ['foo' => 'bar'],                               // Kontext (optional)
+    '2 months',                                     // Gültigkeitsdauer im strtotime (optional)
+);
+```
+
+The API internally converts the "2 months" to a datetime object. If this datetime is reached, Datapool will delete the log entry. Pass ``null`` to keep the log entry forever.
 
 ## ChatProtocol
 
