@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Datana\Datapool\Api;
 
 use OskarStark\Value\TrimmedNonEmptyString;
-use Webmozart\Assert\Assert;
 
 /**
  * @author Oskar Stark <oskarstark@googlemail.com>
