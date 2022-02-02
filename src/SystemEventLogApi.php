@@ -58,7 +58,7 @@ final class SystemEventLogApi implements SystemEventLogApiInterface
         try {
             $response = $this->client->request(
                 'POST',
-                '/api/system-log',
+                '/api/system-event-log',
                 [
                     'json' => $values,
                     'headers' => [
