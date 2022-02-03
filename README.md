@@ -238,7 +238,7 @@ $systemEventLog->log(
     new \DateTimeImmutable(),                       // Zeitpunkt des Events
     'Mein Service',                                 // Ersteller des Events
     ['foo' => 'bar'],                               // Kontext (optional)
-    '2 months',                                     // Gültigkeitsdauer im strtotime (optional)
+    '+2 months',                                    // Gültigkeitsdauer im strtotime (optional)
 );
 ```
 
