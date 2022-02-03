@@ -242,7 +242,7 @@ $systemEventLog->log(
 );
 ```
 
-The API internally converts the "2 months" to a datetime object. If this datetime is reached, Datapool will delete the log entry. Pass ``null`` to keep the log entry forever.
+The API internally converts the "+2 months" to a datetime object. If this datetime is reached, Datapool will delete the log entry. Pass ``null`` to keep the log entry forever.
 
 ## ChatProtocol
 
