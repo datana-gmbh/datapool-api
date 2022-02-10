@@ -59,6 +59,31 @@ final class AktenApi implements AktenApiInterface
         }
     }
 
+    public function getByFahrzeugIdentifikationsnummer(string $fahrzeugIdentifikationsnummer): ResponseInterface
+    {
+        Assert::stringNotEmpty($fahrzeugIdentifikationsnummer);
+
+        try {
+            $response = $this->client->request(
+                'GET',
+                '/api/akten',
+                [
+                    'query' => [
+                        'fahrzeugIdentifikationsnummer' => $fahrzeugIdentifikationsnummer,
+                    ],
+                ]
+            );
+
+            $this->logger->debug('Response', $response->toArray(false));
+
+            return $response;
+        } catch (\Throwable $e) {
+            $this->logger->error($e->getMessage());
+
+            throw $e;
+        }
+    }
+
     public function getOneByAktenzeichen(string $aktenzeichen): AktenResponse
     {
         return new AktenResponse($this->getByAktenzeichen($aktenzeichen));
