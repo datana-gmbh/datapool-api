@@ -62,6 +62,26 @@ $akten = $response->toArray();
 $datapoolId = DatapoolId::fromInt($akte['id']);
 ```
 
+### Get by Fahrzeug-Identifikationsnummer (`string`)
+
+```php
+use Datana\Datapool\Api\AktenApi;
+use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\Domain\Value\DatapoolId;
+
+$client = new DatapoolClient(/* ... */);
+
+$aktenApi = new AktenApi($client);
+$response = $aktenApi->getByFahrzeugIdentifikationsnummer('WVG1231TZCW114608');
+
+/*
+ * to get the DatapoolId transform the response to array
+ * and use the 'id' key.
+ */
+$akten = $response->toArray();
+$datapoolId = DatapoolId::fromInt($akte['id']);
+```
+
 ### Get one by Aktenzeichen (`string`) or get an exception
 
 ```php
