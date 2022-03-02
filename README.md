@@ -16,7 +16,7 @@ composer require datana-gmbh/datapool-api
 ```php
 use Datana\Datapool\Api\DatapoolClient;
 
-$baseUri = 'https://....';
+$baseUri = 'https://api.datapool...';
 $username = '...';
 $password = '...';
 
