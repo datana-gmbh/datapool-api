@@ -31,9 +31,10 @@ final class AktenEventLogApi implements AktenEventLogApiInterface
         $this->logger = $logger ?? new NullLogger();
     }
 
-    public function log(string $aktenzeichen, string $info, \DateTimeInterface $timestamp, string $creator, ?string $text = null, ?string $html = null, ?array $context = null, ?string $foreignId = null, ?string $foreignType = null): bool
+    public function log(string $key, string $aktenzeichen, string $info, \DateTimeInterface $timestamp, string $creator, ?string $text = null, ?string $html = null, ?array $context = null, ?string $foreignId = null, ?string $foreignType = null): bool
     {
         $values = [
+            'key' => TrimmedNonEmptyString::fromString($key, '"key" must not be empty.')->toString(),
             'aktenzeichen' => TrimmedNonEmptyString::fromString($aktenzeichen, '"aktenzeichen" must not be empty.')->toString(),
             'info' => TrimmedNonEmptyString::fromString($info, '"info" must not be empty.')->toString(),
             'timestamp' => $timestamp->format('Y-m-d H:i:s'),
