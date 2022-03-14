@@ -15,3 +15,13 @@ parameters:
 			count: 1
 			path: src/Response/KtAktenInfoResponse.php
 
+		-
+			message: "#^Method Datana\\\\Datapool\\\\Api\\\\Response\\\\SachstandResponse\\:\\:getParagraphs\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Response/SachstandResponse.php
+
+		-
+			message: "#^Method Datana\\\\Datapool\\\\Api\\\\Response\\\\SachstandResponse\\:\\:toArray\\(\\) should return array\\('headline' \\=\\> string, 'paragraphs' \\=\\> array\\<int, string\\>\\) but returns array\\.$#"
+			count: 1
+			path: src/Response/SachstandResponse.php
+
