@@ -17,6 +17,7 @@ use Datana\Datapool\Api\Domain\Value\DatapoolId;
 use Datana\Datapool\Api\Response\AktenResponse;
 use Datana\Datapool\Api\Response\ETerminInfoResponse;
 use Datana\Datapool\Api\Response\KtAktenInfoResponse;
+use Datana\Datapool\Api\Response\SachstandResponse;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use function Safe\sprintf;
@@ -161,6 +162,24 @@ final class AktenApi implements AktenApiInterface
             $this->logger->debug('Response', $response->toArray(false));
 
             return new ETerminInfoResponse($response);
+        } catch (\Throwable $e) {
+            $this->logger->error($e->getMessage());
+
+            throw $e;
+        }
+    }
+
+    public function getSachstand(DatapoolId $datapoolId): SachstandResponse
+    {
+        try {
+            $response = $this->client->request(
+                'GET',
+                sprintf('/api/akte/%s/sachstand', $datapoolId->toInt())
+            );
+
+            $this->logger->debug('Response', $response->toArray(false));
+
+            return new SachstandResponse($response);
         } catch (\Throwable $e) {
             $this->logger->error($e->getMessage());
 

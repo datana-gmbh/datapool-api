@@ -17,6 +17,7 @@ use Datana\Datapool\Api\Domain\Value\DatapoolId;
 use Datana\Datapool\Api\Response\AktenResponse;
 use Datana\Datapool\Api\Response\ETerminInfoResponse;
 use Datana\Datapool\Api\Response\KtAktenInfoResponse;
+use Datana\Datapool\Api\Response\SachstandResponse;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
 /**
@@ -33,6 +34,8 @@ interface AktenApiInterface
     public function getETerminInfo(DatapoolId $datapoolId): ETerminInfoResponse;
 
     public function getKtAktenInfo(DatapoolId $datapoolId): KtAktenInfoResponse;
+
+    public function getSachstand(DatapoolId $datapoolId): SachstandResponse;
 
     public function search(string $searchTerm): ResponseInterface;
 
