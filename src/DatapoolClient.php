@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Datana\Datapool\Api;
 
 use Datana\Datapool\Api\Domain\Value\Token;
+use OskarStark\Value\TrimmedNonEmptyString;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Component\HttpClient\HttpClient;
@@ -35,8 +36,8 @@ final class DatapoolClient
     public function __construct(string $baseUri, string $username, string $password, ?LoggerInterface $logger = null)
     {
         $this->client = HttpClient::createForBaseUri($baseUri);
-        $this->username = $username;
-        $this->password = $password;
+        $this->username = TrimmedNonEmptyString::fromString($username, '$username must not be an empty string')->toString();
+        $this->password = TrimmedNonEmptyString::fromString($password, '$password must not be an empty string')->toString();
         $this->logger = $logger ?? new NullLogger();
     }
 
