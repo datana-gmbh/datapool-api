@@ -201,7 +201,7 @@ final class AktenApi implements AktenApiInterface
 
         try {
             $response = $this->client->request(
-                'POST',
+                'PUT',
                 sprintf('/api/akte/%s/set-value-nutzer-mandantencockpit', $datapoolId->toInt()),
                 [
                     'json' => [
