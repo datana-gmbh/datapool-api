@@ -18,6 +18,7 @@ use Datana\Datapool\Api\Response\AktenResponse;
 use Datana\Datapool\Api\Response\ETerminInfoResponse;
 use Datana\Datapool\Api\Response\KtAktenInfoResponse;
 use Datana\Datapool\Api\Response\SachstandResponse;
+use Datana\Datapool\Api\Response\SimplyBookInfoResponse;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use function Safe\sprintf;
@@ -162,6 +163,24 @@ final class AktenApi implements AktenApiInterface
             $this->logger->debug('Response', $response->toArray(false));
 
             return new ETerminInfoResponse($response);
+        } catch (\Throwable $e) {
+            $this->logger->error($e->getMessage());
+
+            throw $e;
+        }
+    }
+
+    public function getSimplyBookInfo(DatapoolId $datapoolId): SimplyBookInfoResponse
+    {
+        try {
+            $response = $this->client->request(
+                'GET',
+                sprintf('/api/akte/%s/simply-book-info', $datapoolId->toInt())
+            );
+
+            $this->logger->debug('Response', $response->toArray(false));
+
+            return new SimplyBookInfoResponse($response);
         } catch (\Throwable $e) {
             $this->logger->error($e->getMessage());
 

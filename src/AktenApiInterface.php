@@ -18,6 +18,7 @@ use Datana\Datapool\Api\Response\AktenResponse;
 use Datana\Datapool\Api\Response\ETerminInfoResponse;
 use Datana\Datapool\Api\Response\KtAktenInfoResponse;
 use Datana\Datapool\Api\Response\SachstandResponse;
+use Datana\Datapool\Api\Response\SimplyBookInfoResponse;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
 /**
@@ -32,6 +33,8 @@ interface AktenApiInterface
     public function getOneByAktenzeichen(string $aktenzeichen): AktenResponse;
 
     public function getETerminInfo(DatapoolId $datapoolId): ETerminInfoResponse;
+
+    public function getSimplyBookInfo(DatapoolId $datapoolId): SimplyBookInfoResponse;
 
     public function getKtAktenInfo(DatapoolId $datapoolId): KtAktenInfoResponse;
 
