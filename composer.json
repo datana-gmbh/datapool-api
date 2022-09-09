@@ -28,7 +28,11 @@
         "thecodingmachine/phpstan-safe-rule": "^1.0"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "phpstan/extension-installer": true
+        }
     },
     "autoload": {
         "psr-4": {
