@@ -170,13 +170,42 @@ $aktenApi = new AktenApi($client);
 
 $id = DatapoolId::fromInt(123);
 
-// is an instance of ETerminResponse
+/* @var $response Datana\Datapool\Api\Domain\Response\EterminInfoResponse */
 $response = $aktenApi->getETerminInfo($id);
 /*
  * $response->toArray():
  *   [
  *     'service_id' => 123,
  *     'service_url' => 'https://www.etermin.net/Gansel-Rechtsanwaelte/serviceid/123',
+ *   ]
+ *
+ * or use the dedicated getter methods like
+ *  - getServiceId()
+ *  - getServiceUrl()
+ * etc.
+ */
+```
+
+### Get SimplyBook Info (`Datana\Datapool\Api\Domain\Value\DatapoolId`)
+
+```php
+use Datana\Datapool\Api\AktenApi;
+use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\Domain\Value\DatapoolId;
+
+$client = new DatapoolClient(/* ... */);
+
+$aktenApi = new AktenApi($client);
+
+$id = DatapoolId::fromInt(123);
+
+/* @var $response Datana\Datapool\Api\Domain\Response\SimplyBookInfoResponse */
+$response = $aktenApi->getETerminInfo($id);
+/*
+ * $response->toArray():
+ *   [
+ *     'service_id' => 12,
+ *     'service_url' => 'https://ganselrechtsanwaelteag.simplybook.it/v2/#book/service/12/count/1/provider/any/',
  *   ]
  *
  * or use the dedicated getter methods like
