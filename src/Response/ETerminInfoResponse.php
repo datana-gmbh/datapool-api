@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/*
+/**
  * This file is part of Datapool-Api.
  *
  * (c) Datana GmbH <info@datana.rocks>
@@ -48,7 +48,7 @@ final class ETerminInfoResponse
     }
 
     /**
-     * @return array{'service_id': string|null, 'service_url': string|null}
+     * @return array{'service_id': null|string, 'service_url': null|string}
      */
     public function toArray(): array
     {

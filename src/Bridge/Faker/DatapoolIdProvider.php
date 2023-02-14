@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/*
+/**
  * This file is part of Datapool-Api.
  *
  * (c) Datana GmbH <info@datana.rocks>
@@ -21,7 +21,7 @@ final class DatapoolIdProvider extends BaseProvider
     public function datapoolId(): DatapoolId
     {
         return DatapoolId::fromInt(
-            $this->datapoolIdInteger()
+            $this->datapoolIdInteger(),
         );
     }
 

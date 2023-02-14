@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/*
+/**
  * This file is part of Datapool-Api.
  *
  * (c) Datana GmbH <info@datana.rocks>
@@ -52,7 +52,7 @@ final class DatapoolClient
                         'username' => $this->username,
                         'password' => $this->password,
                     ],
-                ]
+                ],
             );
 
             $token = Token::fromResponse($response);
@@ -95,8 +95,8 @@ final class DatapoolClient
                 $options,
                 [
                     'auth_bearer' => $token->toString(),
-                ]
-            )
+                ],
+            ),
         );
     }
 }

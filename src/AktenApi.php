@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/*
+/**
  * This file is part of Datapool-Api.
  *
  * (c) Datana GmbH <info@datana.rocks>
@@ -21,9 +21,9 @@ use Datana\Datapool\Api\Response\SachstandResponse;
 use Datana\Datapool\Api\Response\SimplyBookInfoResponse;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
-use function Safe\sprintf;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;
+use function Safe\sprintf;
 
 final class AktenApi implements AktenApiInterface
 {
@@ -48,7 +48,7 @@ final class AktenApi implements AktenApiInterface
                     'query' => [
                         'aktenzeichen' => $aktenzeichen,
                     ],
-                ]
+                ],
             );
 
             $this->logger->debug('Response', $response->toArray(false));
@@ -73,7 +73,7 @@ final class AktenApi implements AktenApiInterface
                     'query' => [
                         'fahrzeugIdentifikationsnummer' => $fahrzeugIdentifikationsnummer,
                     ],
-                ]
+                ],
             );
 
             $this->logger->debug('Response', $response->toArray(false));
@@ -103,7 +103,7 @@ final class AktenApi implements AktenApiInterface
                     'query' => [
                         'searchstring' => $searchTerm,
                     ],
-                ]
+                ],
             );
 
             $this->logger->debug('Response', $response->toArray(false));
@@ -121,7 +121,7 @@ final class AktenApi implements AktenApiInterface
         try {
             $response = $this->client->request(
                 'GET',
-                sprintf('/api/akte/%s', $datapoolId->toInt())
+                sprintf('/api/akte/%s', $datapoolId->toInt()),
             );
 
             $this->logger->debug('Response', $response->toArray(false));
@@ -139,7 +139,7 @@ final class AktenApi implements AktenApiInterface
         try {
             $response = $this->client->request(
                 'GET',
-                sprintf('/api/akte/%s/kt-akte-info', $datapoolId->toInt())
+                sprintf('/api/akte/%s/kt-akte-info', $datapoolId->toInt()),
             );
 
             $this->logger->debug('Response', $response->toArray(false));
@@ -157,7 +157,7 @@ final class AktenApi implements AktenApiInterface
         try {
             $response = $this->client->request(
                 'GET',
-                sprintf('/api/akte/%s/e-termin-info', $datapoolId->toInt())
+                sprintf('/api/akte/%s/e-termin-info', $datapoolId->toInt()),
             );
 
             $this->logger->debug('Response', $response->toArray(false));
@@ -175,7 +175,7 @@ final class AktenApi implements AktenApiInterface
         try {
             $response = $this->client->request(
                 'GET',
-                sprintf('/api/akte/%s/simply-book-info', $datapoolId->toInt())
+                sprintf('/api/akte/%s/simply-book-info', $datapoolId->toInt()),
             );
 
             $this->logger->debug('Response', $response->toArray(false));
@@ -193,7 +193,7 @@ final class AktenApi implements AktenApiInterface
         try {
             $response = $this->client->request(
                 'GET',
-                sprintf('/api/akte/%s/sachstand', $datapoolId->toInt())
+                sprintf('/api/akte/%s/sachstand', $datapoolId->toInt()),
             );
 
             $this->logger->debug('Response', $response->toArray(false));
@@ -226,7 +226,7 @@ final class AktenApi implements AktenApiInterface
                     'json' => [
                         'value' => $value,
                     ],
-                ]
+                ],
             );
 
             $this->logger->debug('Response', $response->toArray(false));

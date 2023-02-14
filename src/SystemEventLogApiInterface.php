@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/*
+/**
  * This file is part of Datapool-Api.
  *
  * (c) Datana GmbH <info@datana.rocks>
@@ -19,8 +19,8 @@ namespace Datana\Datapool\Api;
 interface SystemEventLogApiInterface
 {
     /**
-     * @param array<mixed>|null $context
-     * @param string|null       $ttl     "time to live" in strtotime format, from now on, use "null" to keep the log entry forever
+     * @param null|array<mixed> $context
+     * @param null|string       $ttl     "time to live" in strtotime format, from now on, use "null" to keep the log entry forever
      */
     public function log(string $key, string $info, \DateTimeInterface $timestamp, string $creator, ?array $context = null, ?string $ttl = null): bool;
 }
