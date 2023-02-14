@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/*
+/**
  * This file is part of Datapool-Api.
  *
  * (c) Datana GmbH <info@datana.rocks>
@@ -33,15 +33,15 @@ final class DatapoolIdTest extends TestCase
     {
         self::assertSame(
             $value,
-            DatapoolId::fromInt($value)->toInt()
+            DatapoolId::fromInt($value)->toInt(),
         );
     }
 
     /**
      * @test
      *
-     * @dataProvider \Ergebnis\Test\Util\DataProvider\IntProvider::zero()
      * @dataProvider \Ergebnis\Test\Util\DataProvider\IntProvider::lessThanZero()
+     * @dataProvider \Ergebnis\Test\Util\DataProvider\IntProvider::zero()
      */
     public function fromIntThrowsException(int $value): void
     {

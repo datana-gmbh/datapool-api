@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/*
+/**
  * This file is part of Datapool-Api.
  *
  * (c) Datana GmbH <info@datana.rocks>
@@ -44,14 +44,14 @@ final class AktenEventLogApi implements AktenEventLogApiInterface
         if (null !== $text) {
             $values['text'] = TrimmedNonEmptyString::fromString(
                 $text,
-                'If provided, value of "text" must not be empty, provide "null" instead.'
+                'If provided, value of "text" must not be empty, provide "null" instead.',
             )->toString();
         }
 
         if (null !== $html) {
             $values['html'] = TrimmedNonEmptyString::fromString(
                 $html,
-                'If provided, value of "html" must not be empty, provide "null" instead.'
+                'If provided, value of "html" must not be empty, provide "null" instead.',
             )->toString();
         }
 
@@ -62,14 +62,14 @@ final class AktenEventLogApi implements AktenEventLogApiInterface
         if (null !== $foreignId) {
             $values['foreignId'] = TrimmedNonEmptyString::fromString(
                 $foreignId,
-                'If provided, value "foreignId" must not be empty, provide "null" instead.'
+                'If provided, value "foreignId" must not be empty, provide "null" instead.',
             )->toString();
         }
 
         if (null !== $foreignType) {
             $values['foreignType'] = TrimmedNonEmptyString::fromString(
                 $foreignType,
-                'If provided, value "foreignType" must not be empty, provide "null" instead.'
+                'If provided, value "foreignType" must not be empty, provide "null" instead.',
             )->toString();
         }
 

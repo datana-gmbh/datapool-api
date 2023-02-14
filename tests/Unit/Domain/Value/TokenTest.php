@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/*
+/**
  * This file is part of Datapool-Api.
  *
  * (c) Datana GmbH <info@datana.rocks>
@@ -34,14 +34,14 @@ final class TokenTest extends TestCase
     {
         self::assertSame(
             $expected,
-            Token::fromString($value)->toString()
+            Token::fromString($value)->toString(),
         );
     }
 
     /**
      * @return \Generator<string, array{0: string, 1: string}>
      */
-    public function fromStringProvider(): \Generator
+    public static function fromStringProvider(): \Generator
     {
         $token = self::faker()->sha256();
 
@@ -89,7 +89,7 @@ final class TokenTest extends TestCase
 
         self::assertSame(
             $token,
-            Token::fromResponse($httpResponse)->toString()
+            Token::fromResponse($httpResponse)->toString(),
         );
     }
 }

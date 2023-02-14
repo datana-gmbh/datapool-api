@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/*
+/**
  * This file is part of Datapool-Api.
  *
  * (c) Datana GmbH <info@datana.rocks>
@@ -43,7 +43,7 @@ final class SystemEventLogApi implements SystemEventLogApiInterface
         if (null !== $ttl) {
             $ttl = TrimmedNonEmptyString::fromString(
                 $ttl,
-                'If provided, value of "ttl" must not be empty, provide "null" instead.'
+                'If provided, value of "ttl" must not be empty, provide "null" instead.',
             );
 
             $values['keepUntil'] = \Safe\date('Y-m-d H:i:s', \Safe\strtotime($ttl->toString()));
