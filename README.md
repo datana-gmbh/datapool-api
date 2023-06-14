@@ -19,8 +19,9 @@ use Datana\Datapool\Api\DatapoolClient;
 $baseUri = 'https://api.datapool...';
 $username = '...';
 $password = '...';
+$timeout = 10; // optional
 
-$client = new DatapoolClient($baseUri, $username, $password);
+$client = new DatapoolClient($baseUri, $username, $password, $timeout);
 
 // you can now request any endpoint which needs authentication
 $client->request('GET', '/api/something', $options);
