@@ -31,16 +31,16 @@ final class DatapoolClient
     private HttpClientInterface $client;
     private string $username;
     private string $password;
-    private LoggerInterface $logger;
     private int $timeout;
+    private LoggerInterface $logger;
 
-    public function __construct(string $baseUri, string $username, string $password, ?LoggerInterface $logger = null, int $timeout = 2)
+    public function __construct(string $baseUri, string $username, string $password, int $timeout = 2, ?LoggerInterface $logger = null)
     {
         $this->client = HttpClient::createForBaseUri($baseUri);
         $this->username = TrimmedNonEmptyString::fromString($username, '$username must not be an empty string')->toString();
         $this->password = TrimmedNonEmptyString::fromString($password, '$password must not be an empty string')->toString();
-        $this->logger = $logger ?? new NullLogger();
         $this->timeout = $timeout;
+        $this->logger = $logger ?? new NullLogger();
     }
 
     public function getToken(): Token
@@ -90,7 +90,7 @@ final class DatapoolClient
 
         $token = $this->getToken();
 
-        if (!array_key_exists('timeout', $options)){
+        if (!\array_key_exists('timeout', $options)) {
             $options['timeout'] = $this->timeout;
         }
 
