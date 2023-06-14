@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Datana\Datapool\Api;
 
-use Datana\Datapool\Api\Domain\Value\Token;
 use OskarStark\Value\TrimmedNonEmptyString;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
@@ -22,6 +21,7 @@ use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;
+use function Safe\sprintf;
 
 /**
  * @author Oskar Stark <oskarstark@googlemail.com>
@@ -43,32 +43,6 @@ final class DatapoolClient
         $this->logger = $logger ?? new NullLogger();
     }
 
-    public function getToken(): Token
-    {
-        try {
-            $response = $this->client->request(
-                'POST',
-                '/api/login_check',
-                [
-                    'json' => [
-                        'username' => $this->username,
-                        'password' => $this->password,
-                    ],
-                ],
-            );
-
-            $token = Token::fromResponse($response);
-
-            $this->logger->info('Got token', ['token' => $token->toString()]);
-
-            return $token;
-        } catch (\Throwable $e) {
-            $this->logger->error($e->getMessage());
-
-            throw $e;
-        }
-    }
-
     /**
      * Requests an HTTP resource.
      *
@@ -88,8 +62,6 @@ final class DatapoolClient
         Assert::notStartsWith($url, 'http', '$url should be relative: Got: %s');
         Assert::startsWith($url, '/', '$url should start with a "/". Got: %s');
 
-        $token = $this->getToken();
-
         if (!\array_key_exists('timeout', $options)) {
             $options['timeout'] = $this->timeout;
         }
@@ -100,7 +72,11 @@ final class DatapoolClient
             array_merge(
                 $options,
                 [
-                    'auth_bearer' => $token->toString(),
+                    'auth_basic' => sprintf(
+                        '%s:%s',
+                        $this->username,
+                        $this->password,
+                    ),
                 ],
             ),
         );
