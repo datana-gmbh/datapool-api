@@ -41,7 +41,7 @@ final class TokenTest extends TestCase
     /**
      * @return \Generator<string, array{0: string, 1: string}>
      */
-    public static function fromStringProvider(): \Generator
+    public static function fromStringProvider(): iterable
     {
         $token = self::faker()->sha256();
 
