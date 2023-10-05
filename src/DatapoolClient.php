@@ -34,7 +34,7 @@ final class DatapoolClient
     private int $timeout;
     private LoggerInterface $logger;
 
-    public function __construct(string $baseUri, string $username, string $password, int $timeout = 2, ?LoggerInterface $logger = null)
+    public function __construct(string $baseUri, string $username, string $password, int $timeout = 4, ?LoggerInterface $logger = null)
     {
         $this->client = HttpClient::createForBaseUri($baseUri);
         $this->username = TrimmedNonEmptyString::fromString($username, '$username must not be an empty string')->toString();
