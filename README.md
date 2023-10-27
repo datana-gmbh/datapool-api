@@ -16,12 +16,12 @@ composer require datana-gmbh/datapool-api
 ```php
 use Datana\Datapool\Api\DatapoolClient;
 
-$baseUri = 'https://api.datapool...';
-$username = '...';
-$password = '...';
-$timeout = 10; // optional
-
-$client = new DatapoolClient($baseUri, $username, $password, $timeout);
+$client = new DatapoolClient(
+    baseUri: 'https://api.datapool...',
+    username: 'my-username',
+    password: '******',
+    timeout: 10 // optional
+);
 
 // you can now request any endpoint which needs authentication
 $client->request('GET', '/api/something', $options);
@@ -262,11 +262,11 @@ $client = new DatapoolClient(/* ... */);
 
 $aktenEventLog = new AktenEventLogApi($client);
 $aktenEventLog->log(
-    'email.sent',             // Key
-    '1234/12',                // Aktenzeichen
-    'E-Mail versendet',       // Info-Text
-    new \DateTimeImmutable(), // Zeitpunkt des Events
-    'Mein Service',           // Ersteller des Events
+    key: 'email.sent',
+    aktenzeichen: '1234/12',
+    info: 'E-Mail versendet',
+    timestamp: new \DateTimeImmutable(), // Zeitpunkt des Events
+    creator: 'Mein Service',             // Ersteller des Events
 );
 ```
 
@@ -284,12 +284,12 @@ $client = new DatapoolClient(/* ... */);
 
 $systemEventLog = new SystemEventLogApi($client);
 $systemEventLog->log(
-    'received.webhook',                             // Key
-    'Webhook received on /api/cockpit/DAT-changed', // Info-Text
-    new \DateTimeImmutable(),                       // Zeitpunkt des Events
-    'Mein Service',                                 // Ersteller des Events
-    ['foo' => 'bar'],                               // Kontext (optional)
-    '+2 months',                                    // Gültigkeitsdauer im strtotime (optional)
+    key: 'received.webhook',
+    info: 'Webhook received on /api/cockpit/DAT-changed',  // Info-Text
+    timestamp: new \DateTimeImmutable(),                   // Zeitpunkt des Events
+    creator: 'Mein Service',                               // Ersteller des Events
+    context: ['foo' => 'bar'],                             // Kontext (optional)
+    ttl: '+2 months',                                      // Gültigkeitsdauer im strtotime Format (optional)
 );
 ```
 
