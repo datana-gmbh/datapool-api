@@ -307,7 +307,7 @@ use Datana\Datapool\Api\DatapoolClient;
 
 $client = new DatapoolClient(/* ... */);
 
-$chatProtocol = new ChrtProtocolApi($client);
+$chatProtocol = new ChatProtocolApi($client);
 $chatProtocol->log(
     '1234/12',                // Aktenzeichen
     '123456',                 // Conversation ID
