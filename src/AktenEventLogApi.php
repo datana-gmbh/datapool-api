@@ -22,13 +22,10 @@ use Psr\Log\NullLogger;
  */
 final class AktenEventLogApi implements AktenEventLogApiInterface
 {
-    private DatapoolClient $client;
-    private LoggerInterface $logger;
-
-    public function __construct(DatapoolClient $client, ?LoggerInterface $logger = null)
-    {
-        $this->client = $client;
-        $this->logger = $logger ?? new NullLogger();
+    public function __construct(
+        private DatapoolClient $client,
+        private LoggerInterface $logger = new NullLogger(),
+    ) {
     }
 
     public function log(string $key, string $aktenzeichen, string $info, \DateTimeInterface $timestamp, string $creator, ?string $text = null, ?string $html = null, ?array $context = null, ?string $foreignId = null, ?string $foreignType = null): bool

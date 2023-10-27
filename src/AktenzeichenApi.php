@@ -21,13 +21,10 @@ use Psr\Log\NullLogger;
  */
 final class AktenzeichenApi implements AktenzeichenApiInterface
 {
-    private DatapoolClient $client;
-    private LoggerInterface $logger;
-
-    public function __construct(DatapoolClient $client, ?LoggerInterface $logger = null)
-    {
-        $this->client = $client;
-        $this->logger = $logger ?? new NullLogger();
+    public function __construct(
+        private DatapoolClient $client,
+        private LoggerInterface $logger = new NullLogger(),
+    ) {
     }
 
     public function new(): string

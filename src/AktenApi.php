@@ -27,13 +27,10 @@ use function Safe\sprintf;
 
 final class AktenApi implements AktenApiInterface
 {
-    private DatapoolClient $client;
-    private LoggerInterface $logger;
-
-    public function __construct(DatapoolClient $client, ?LoggerInterface $logger = null)
-    {
-        $this->client = $client;
-        $this->logger = $logger ?? new NullLogger();
+    public function __construct(
+        private DatapoolClient $client,
+        private LoggerInterface $logger = new NullLogger(),
+    ) {
     }
 
     public function getByAktenzeichen(string $aktenzeichen): ResponseInterface
