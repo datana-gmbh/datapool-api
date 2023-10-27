@@ -22,9 +22,8 @@ final class KnowledgeToolsApi implements KnowledgeToolsApiInterface
 {
     public function __construct(
         private DatapoolClient $client,
-        private LoggerInterface $logger = new NullLogger()
-    )
-    {
+        private LoggerInterface $logger = new NullLogger(),
+    ) {
     }
 
     public function getFieldvalueByInstanceAndOid(string $instance, int $oid, string $fieldhash): array
@@ -38,7 +37,7 @@ final class KnowledgeToolsApi implements KnowledgeToolsApiInterface
                     '/api/kt/%s/%d/fieldvalue/%s',
                     TrimmedNonEmptyString::fromString($instance)->toString(),
                     $oid,
-                    TrimmedNonEmptyString::fromString($fieldhash)->toString()
+                    TrimmedNonEmptyString::fromString($fieldhash)->toString(),
                 ),
             );
 

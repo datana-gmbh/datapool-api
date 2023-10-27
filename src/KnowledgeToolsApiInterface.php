@@ -13,14 +13,6 @@ declare(strict_types=1);
 
 namespace Datana\Datapool\Api;
 
-use Datana\Datapool\Api\Domain\Value\DatapoolId;
-use Datana\Datapool\Api\Response\AktenResponse;
-use Datana\Datapool\Api\Response\ETerminInfoResponse;
-use Datana\Datapool\Api\Response\KtAktenInfoResponse;
-use Datana\Datapool\Api\Response\SachstandResponse;
-use Datana\Datapool\Api\Response\SimplyBookInfoResponse;
-use Symfony\Contracts\HttpClient\ResponseInterface;
-
 /**
  * @author Oskar Stark <oskar.stark@googlemail.de>
  */
