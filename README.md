@@ -302,17 +302,37 @@ In your code you should type-hint to `Datana\Datapool\Api\ChatProtocolApiInterfa
 ### Save a new chat protocol
 
 ```php
-use Datana\Datapool\Api\ChatProtoclApi;
+use Datana\Datapool\Api\ChatProtocolApi;
 use Datana\Datapool\Api\DatapoolClient;
 
 $client = new DatapoolClient(/* ... */);
 
-$chatProtocol = new ChrtProtocolApi($client);
+$chatProtocol = new ChatProtocolApi($client);
 $chatProtocol->log(
     '1234/12',                // Aktenzeichen
     '123456',                 // Conversation ID
     array(/*...*/),           // Das JSON der Intercom conversation
     new \DateTimeImmutable(), // Startzeitpunkt der Conversation
+);
+```
+
+## KnowledgeTools
+
+In your code you should type-hint to `Datana\Datapool\Api\KnowledgeToolsApiInterface`
+
+### Get Fieldvalue by Instance and OID
+
+```php
+use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\KnowledgeToolsApi;
+
+$client = new DatapoolClient(/* ... */);
+
+$api = new KnowledgeToolsApi($client);
+$api->getFieldvalueByInstanceAndOid(
+    instance: 'my-instance',
+    oid: 123456,
+    fieldhash: 'abcdefghi',
 );
 ```
 
