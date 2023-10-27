@@ -26,6 +26,9 @@ final class KnowledgeToolsApi implements KnowledgeToolsApiInterface
     ) {
     }
 
+    /**
+     * @return array{oid: int, instance: string, hash: string, value: mixed}
+     */
     public function getFieldvalueByInstanceAndOid(string $instance, int $oid, string $fieldhash): array
     {
         Assert::greaterThan($oid, 0);
