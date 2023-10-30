@@ -50,4 +50,26 @@ final class KnowledgeToolsApi implements KnowledgeToolsApiInterface
             throw $e;
         }
     }
+
+    public function getFieldvalueByAktenzeichen(string $aktenzeichen, string $fieldhash): array
+    {
+        try {
+            $response = $this->client->request(
+                'GET',
+                sprintf(
+                    '/api/kt/%s/fieldvalue/%s',
+                    TrimmedNonEmptyString::fromString($aktenzeichen)->toString(),
+                    TrimmedNonEmptyString::fromString($fieldhash)->toString(),
+                ),
+            );
+
+            $this->logger->debug('Response', $response->toArray(false));
+
+            return $response->toArray();
+        } catch (\Throwable $e) {
+            $this->logger->error($e->getMessage());
+
+            throw $e;
+        }
+    }
 }

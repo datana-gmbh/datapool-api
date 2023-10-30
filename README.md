@@ -336,6 +336,21 @@ $api->getFieldvalueByInstanceAndOid(
 );
 ```
 
+### Get Fieldvalue by Aktenzeichen
+
+```php
+use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\KnowledgeToolsApi;
+
+$client = new DatapoolClient(/* ... */);
+
+$api = new KnowledgeToolsApi($client);
+$api->getFieldvalueByAktenzeichen(
+    oid: '1abcde-1234-5678-Mustermann',
+    fieldhash: 'abcdefghi',
+);
+```
+
 [build-status-master-php]: https://github.com/datana-gmbh/datapool-api/workflows/PHP/badge.svg?branch=master
 [coverage-status-master]: https://codecov.io/gh/datana-gmbh/datapool-api/branch/master/graph/badge.svg
 
