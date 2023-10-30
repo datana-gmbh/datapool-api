@@ -22,4 +22,9 @@ interface KnowledgeToolsApiInterface
      * @return array{oid: int, instance: string, hash: string, value: mixed}
      */
     public function getFieldvalueByInstanceAndOid(string $instance, int $oid, string $fieldhash): array;
+
+    /**
+     * @return array{aktenzeichen: string, hash: string, value: mixed}
+     */
+    public function getFieldvalueByAktenzeichen(string $aktenzeichen, string $fieldhash): array;
 }

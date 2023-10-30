@@ -6,6 +6,11 @@ parameters:
 			path: src/DatapoolClient.php
 
 		-
+			message: "#^Method Datana\\\\Datapool\\\\Api\\\\KnowledgeToolsApi\\:\\:getFieldvalueByAktenzeichen\\(\\) should return array\\{aktenzeichen\\: string, hash\\: string, value\\: mixed\\} but returns array\\.$#"
+			count: 1
+			path: src/KnowledgeToolsApi.php
+
+		-
 			message: "#^Method Datana\\\\Datapool\\\\Api\\\\KnowledgeToolsApi\\:\\:getFieldvalueByInstanceAndOid\\(\\) should return array\\{oid\\: int, instance\\: string, hash\\: string, value\\: mixed\\} but returns array\\.$#"
 			count: 1
 			path: src/KnowledgeToolsApi.php
